@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Popcorn_App.props" />
+</Project>

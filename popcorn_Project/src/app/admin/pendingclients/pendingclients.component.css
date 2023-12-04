@@ -1,0 +1,15 @@
+   /* sidebar css */
+   ul[id="sidenav"]>li{
+    margin: 10px;
+  }
+          
+  ul[id="sidenav"]>li>a{
+    font-size: x-large;
+  }
+          
+  ul[id="sidenav"]{
+    margin-top: 10%;
+  }
+  a, .end, i, .qua{
+    text-align: center;
+  }

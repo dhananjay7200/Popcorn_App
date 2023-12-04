@@ -1,0 +1,186 @@
+<!-- side navigation  -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+      <div class="offcanvas-header">
+
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul id="sidenav" class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item">
+            <a href="clientdashboard" class="nav-link text-white font-weight-bold">
+                      <i class="fa fa-home" style="font-size:24px; color:red"></i>
+                      Home
+                  </a>
+          </li>
+          <li class="nav-item text-dark">
+            <a href="addmovies" class="nav-link text-white font-italic">
+                      <i class="fa fa-film" style="font-size:24px; color: red;"></i>
+                      Add movies
+                  </a>
+          </li>
+          <li class="nav-item">
+            <a href="addsongs" class="nav-link text-white font-italic">
+                      <i class="fa fa-music" style="font-size:24px; color: red;"></i>
+                      Add songs
+                  </a>
+          </li>
+          <li class="nav-item">
+            <a href="addseries" class="nav-link text-white font-italic">
+                      <i class="fa fa-tv" style="font-size:24px; color: red;"></i>
+                      Add Series
+                  </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+<!-- side navigation ends  -->
+
+
+<section class="gradient-custom">
+    
+  <div class="container py-5">
+    <div class="row justify-content-center align-items-center h-100">
+      <div class="col-12 col-lg-9 col-xl-7">
+        <div class="card shadow-2-strong card-registration" >
+            <h2 style="text-align: center; font-weight: bolder;">Add series</h2>
+          <div class="card-body p-4 p-md-5">
+            
+            <form class="bg-custom"
+            [formGroup]="seriesform"
+            (ngSubmit)="addSeries()">
+              <div class="row">
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <label class="form-label text-dark" 
+                      ><h5>Series title</h5></label
+                    >
+                    <input
+                      type="text"
+                      class="form-control form-control-lg"
+                      formControlName="Title"
+                    />
+                    
+                    <div *ngIf="seriesform.get('Title')?.invalid && seriesform.get('Title')?.touched">
+                      <div *ngIf="seriesform.get('Title')?.hasError">
+                        <span style="color: red;">Please Enter valid Title.</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <label class="form-label text-dark" ><h5>Description</h5></label>
+                    <input
+                      type="text"
+                      class="form-control form-control-lg"
+                      formControlName="Description"
+                    />
+                    
+                    <div *ngIf="seriesform.get('Description')?.invalid && seriesform.get('Description')?.touched">
+                      <div *ngIf="seriesform.get('Description')?.hasError">
+                        <span style="color: red;">Please Enter valid Description.</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <label class="form-label text-dark" ><h5>Country</h5></label>
+                    <input
+                      type="text"
+                      class="form-control form-control-lg"
+                      formControlName="Country"
+                    />
+                    
+                    <div *ngIf="seriesform.get('Country')?.invalid && seriesform.get('Country')?.touched">
+                      <div *ngIf="seriesform.get('Country')?.hasError">
+                        <span style="color: red;">Please Enter valid Country.</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 mb-4 d-flex align-items-center">
+                  <div class="form-outline datepicker w-100">
+                    <label class="form-label text-dark"
+                      ><h5>Thumbnail</h5></label
+                    >
+                    <input type="file" class="fileControlInput" multiple="multiple" accept=".png,.jpg/*"
+                    (change)="getFiledetials($event.target)"  formControlName="Thumbnail"/>
+                    
+                    <div *ngIf="seriesform.get('Thumbnail')?.invalid && seriesform.get('Thumbnail')?.touched">
+                      <div *ngIf="seriesform.get('Thumbnail')?.hasError">
+                        <span style="color: red;">Please Enter valid Thumbnail.</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 mb-4 pb-2">
+                  <div class="form-outline">
+                    <label class="form-label text-dark" 
+                      ><h5>Video file</h5></label
+                    >
+                    <input type="file" class="fileControlInput" multiple="multiple" accept=".mp4,.jpg/*"
+                    (change)="getMovieurl($event.target)"  formControlName="Video"/>
+                    
+                    <div *ngIf="seriesform.get('Video')?.invalid && seriesform.get('Video')?.touched">
+                      <div *ngIf="seriesform.get('Video')?.hasError">
+                        <span style="color: red;">Please Enter valid Video.</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <label class="form-label text-dark" 
+                ><h5>Category</h5></label
+              >
+                <select class="form-select" aria-label="Default select example"  formControlName="Category">
+                  <option value="1">Action</option>
+                  <option value="2" >Romance</option>
+                  <option value="3">Comedy</option>
+                </select>
+                
+                <div *ngIf="seriesform.get('Category')?.invalid && seriesform.get('Category')?.touched">
+                <div *ngIf="seriesform.get('Category')?.hasError">
+                  <span style="color: red;">Please Enter valid Category.</span>
+                </div>
+              </div>
+            </div>
+              <div class="mt-4 pt-2">
+                <button type="reset" class="btn btn btn-danger btn-lg">
+                  Reset all
+                </button>&nbsp;
+                <button
+                  class="btn btn-dark btn-lg"
+                  type="submit"
+                  value="Submit"
+                  [disabled]="seriesform.invalid"
+                >Submit form</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+

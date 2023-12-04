@@ -1,0 +1,63 @@
+
+.nav-link:hover{
+    color: chocolate;
+}
+
+
+
+
+
+#header {
+    background-color: black;
+    display:flex; 
+    justify-content: center; /* center everything */
+    align-items: center;
+    padding: 0 260px; /* prevent crawling on the logo */
+    height: 80px;
+  }
+  
+a{
+    color:wheat;
+    font-size: x-large;
+}
+  .img{
+    position: absolute; /* remove the logo from the flow */
+    left: 20px;
+    width: 20px;   /* move the logo to left */ 
+  }
+
+ 
+  
+  #nav-bar > ul {
+    display:flex; /* make a horizontal menu */
+    gap: 150px;    /* gap between menu items */
+    list-style: none;
+    padding-left: 0px;
+  }
+  
+
+/*footer{
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}*/
+
+footer{
+  padding-top: 10px;
+    padding-bottom: 0px;
+    position:sticky;
+    bottom:0%;
+    top:80%;
+    width:100%;
+}
+
+ 
+
+
+
+
+
+
+

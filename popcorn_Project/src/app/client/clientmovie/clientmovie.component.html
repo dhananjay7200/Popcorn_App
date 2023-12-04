@@ -1,0 +1,12 @@
+<table class="table table-dark table-striped-columns">
+    <thead>
+        <tr>
+          <th scope="col">Movie</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tr *ngFor="let item of clientmovies">
+        <td>{{item.movieTitle}}</td>
+        <td><button class="btn btn-danger" (click)="deletemovie(item.pkMovieId)">Delete</button></td>
+      </tr>
+  </table>

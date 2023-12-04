@@ -1,0 +1,92 @@
+
+<!-- sidenavbar  -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+      <div class="offcanvas-header">
+        <h3 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Hello</h3>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul id="sidenav" class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item">
+            <a href="admindashboard" class="nav-link text-white font-weight-bold">
+                      <i class="fa fa-home" style="font-size:24px; color:red"></i>
+                      Home
+                  </a>
+          </li>
+          <li class="nav-item text-dark">
+            <a href="clients" class="nav-link text-white font-italic">
+                      <i class="fa fa-film" style="font-size:24px; color: red;"></i>
+                      Clients
+                  </a>
+          </li>
+          <li class="nav-item">
+            <a href="pclients" class="nav-link text-white font-italic">
+                      <i class="fa fa-music" style="font-size:24px; color: red;"></i>
+                      Pending clients
+                  </a>
+          </li>
+          <li class="nav-item">
+            <a href="users" class="nav-link text-white font-italic">
+                      <i class="fa fa-tv" style="font-size:24px; color: red;"></i>
+                      Users
+                  </a>
+          </li>
+          <li class="nav-item">
+            <a (click)="logout()" class="nav-link text-white font-italic">
+                      <i class="fa fa-sign-out" style="font-size:24px; color: red;"></i>
+                      Logout
+                  </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+<div class="main vertical-nav bg-white" id="sidebar">
+  <div class="py-4 px-3 mb-4 bg-light">
+    <div class="media d-flex ">
+      <div class="media-body">
+        <p class="font-weight-dark text-muted mb-0">Welcome  </p>
+        <h4 class="m-0">{{name}}</h4>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="profile"></a>
+        </li>
+      </div>
+    </div>
+  </div>
+  <ul class="nav flex-column bg-white mb-0">
+    <li class="nav-item">
+      <a href="clients" class="nav-link text-light font-italic bg-dark">
+                <i class="fa fa-th-large mr-3 text-primary fa-fw"></i>
+                Clients
+            </a>
+    </li>
+    <li class="nav-item">
+      <a href="users" class="nav-link text-dark font-italic">
+                <i class="fa fa-address-card mr-3 text-primary fa-fw"></i>
+                Users
+            </a>
+    </li>
+    <li class="nav-item">
+      <a href="pclients" class="nav-link text-light font-italic bg-dark">
+                <i class="fa fa-cubes mr-3 text-primary fa-fw"></i>
+                Pending requests
+            </a>
+    </li>
+   
+  </ul><br>
+  <div class="qua">
+<i >“We make a living by what we get. We make a life by what we give.” </i><br>
+<i> – Winston Churchill</i><br>
+  </div><br>
+  <div></div><br>
+  <br>
+</div><br>
+<br>
+<br>

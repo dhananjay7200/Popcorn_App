@@ -1,0 +1,401 @@
+<div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner carouselhome">
+    <div class="carousel-item active">
+      <img class="bd-carousel-img" src="../../assets/carousel1.jpg" alt="">
+
+      <div class="container">
+        <div class="carousel-caption text-start">
+          <h1>Avatar is back!</h1>
+          <p>Watch Avatar 2 now only on popcorn app, free for a month after you register!!</p>
+          <p><a class="btn btn-lg btn-primary" href="register">Sign up today</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img class="bd-carousel-img" src="../../assets/carousel2.jpg" alt="">
+
+      <div class="container">
+        <div class="carousel-caption">
+          <h1>Game of thrones all seasons</h1>
+          <p>Watch your favorite series, to buy premium scroll down and check the offers</p>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img class="bd-carousel-img" src="../../assets/carousel3.jpeg" alt="">
+
+      <div class="container">
+        <div class="carousel-caption text-end">
+          <h1>Across the spider verse</h1>
+          <p>Now watch brand new your neighbourhood spiderman free for a month after you register</p><h4 style="background-color: orangered; width: fit-content;">only available on popcorn app!!</h4>  
+          <p><a class="btn btn-lg btn-primary" href="register">Lets go</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+
+<hr class="featurette-divider">
+
+<div class="container marketing cmargin">
+
+
+  <div class="row">
+    <div class="col-lg-4">
+      <img class="bd-pkg-img " src="../../assets/pkg1.png" alt="">
+      <h2>Silver</h2>
+        <li>&#9989;Free access to all movies and songs</li>
+        <hr>
+        <li>&#9989;Two machines can access from same account at a time</li>
+        <hr>
+        <li>&#9989;Free access to all movies and songs</li>
+        <hr>
+        <li>&#9989;Free access to all movies and songs</li>
+        <hr> 
+        <button class="btn btn-secondary" (click)="OpenModal1()">Buy</button>
+    </div><!-- /.col-lg-4 -->
+
+    <div class="col-lg-4">
+      <img class="bd-pkg-img " src="../../assets/pkg2.png" alt="">
+      <h2>Gold</h2>
+      <li>&#9989;Free access to all movies and songs</li>
+        <hr>
+        <li>&#9989;Two machines can access from same account at a time</li>
+        <hr>
+        <li>&#9989;Free access to all movies and songs</li>
+        <hr>
+        <li>&#9989;Free access to all movies and songs</li>
+        <hr>
+        <li>&#9989;Free access to all movies and songs</li>
+        <hr>
+        <li>&#9989;Two machines can access from same account at a time</li>
+        <hr> 
+        <button class="btn btn-secondary" (click)="OpenModal2()">Buy</button>
+    </div><!-- /.col-lg-4 -->
+
+
+    <div class="col-lg-4">
+      <img class="bd-pkg-img " src="../../assets/pkg3.png" alt="">
+      <h2>Platinum</h2>
+      <li>&#9989;Free access to all movies and songs</li>
+        <hr>
+        <li>&#9989;Two machines can access from same account at a time</li>
+        <hr>
+        <li>&#9989;Free access to all movies and songs</li>
+        <hr>
+        <li>&#9989;Free access to all movies and songs</li>
+        <hr>
+        <li>&#9989;Free access to all movies and songs</li>
+        <hr>
+        <li>&#9989;Two machines can access from same account at a time</li>
+        <hr>
+        <li>&#9989;Free access to all movies and songs</li>
+        <hr>
+        <li>&#9989;Free access to all movies and songs</li>
+        <hr>
+        <button class="btn btn-secondary"  (click)="OpenModal3()">Buy</button>
+    </div><!-- /.col-lg-4 -->
+  </div><!-- /.row -->
+
+
+  <!-- Modal form for premium subscripton -->
+  <!-- modal #1  -->
+  <div class="modal fade show" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="CloseModal1()"></button>
+        </div>
+        <!-- modal form body starts here  -->
+        <div class="modal-body"> 
+          <section style="background-color: #eee;">
+            <div class="container py-5">
+              <div class="row d-flex justify-content-center">
+                <div class="col-md-12 col-lg-10 col-xl-8">
+                  <div class="card">
+                    <div class="card-body p-md-5">
+                      <div>
+                        <h4>Upgrade your plan</h4>
+                        <p class="text-muted pb-2">
+                          Please make the payment to start enjoying all the features of our premium
+                          plan as soon as possible
+                        </p>
+                      </div>
+          
+                      <div class="px-3 py-4 border border-primary border-2 rounded mt-4 d-flex justify-content-between">
+                        <div class="d-flex flex-row align-items-center">
+                          <img src="https://i.imgur.com/S17BrTx.webp" class="rounded" width="60" />
+                          <div class="d-flex flex-column ms-4">
+                            <span class="h5 mb-1">Silver</span>
+                            <span class="small text-muted">CHANGE PLAN</span>
+                          </div>
+                        </div>
+                        <div class="d-flex flex-row align-items-center">
+                          <sup class="dollar font-weight-bold text-muted">₹</sup>
+                          <span class="h2 mx-1 mb-0">225</span>
+                          <span class="text-muted font-weight-bold mt-2">/ month</span>
+                        </div>
+                      </div>
+          
+                      <h4 class="mt-5">Payment details</h4>
+          
+                      <div class="mt-4 d-flex justify-content-between align-items-center">
+                        <div class="d-flex flex-row align-items-center">
+                          <img src="https://i.imgur.com/qHX7vY1.webp" class="rounded" width="70" />
+                          <div class="d-flex flex-column ms-3">
+                            <span class="h5 mb-1">Credit Card</span>
+                            <span class="small text-muted">1234 XXXX XXXX 2570</span>
+                          </div>
+                        </div>
+                        <div>
+                          <input type="text" class="form-control" placeholder="CVC" style="width: 70px;" />
+                        </div>
+                      </div>
+          
+                      <div class="mt-2 d-flex justify-content-between align-items-center">
+                        <div class="d-flex flex-row align-items-center">
+                          <img src="https://i.imgur.com/qHX7vY1.webp" class="rounded" width="70" />
+                          <div class="d-flex flex-column ms-3">
+                            <span class="h5 mb-1">Debit Card</span>
+                            <span class="small text-muted">2344 XXXX XXXX 8880</span>
+                          </div>
+                        </div>
+                        <div>
+                          <input type="text" class="form-control" placeholder="CVC" style="width: 70px;" />
+                        </div>
+                      </div>
+          
+                      <a href=""><h6 class="mt-4 mb-3 text-primary text-uppercase">ADD PAYMENT METHOD</h6></a>
+          
+                      <div class="form-outline">
+                        <input type="text" id="formControlLg" class="form-control form-control-lg" />
+                        <label class="form-label" for="formControlLg">Email address</label>
+                      </div>
+                      <div class="mt-3">
+                        <button class="btn btn-primary btn-block btn-lg">
+                          Proceed to payment <i class="fas fa-long-arrow-alt-right"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+        <!-- modal form ends here  -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="CloseModal1()">Close</button>
+          <button type="button" class="btn btn-primary" (click)="CloseModal1()">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- modal #2  -->
+  <div class="modal fade show" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="CloseModal2()"></button>
+        </div>
+        <!-- modal form body starts here  -->
+        <div class="modal-body"> 
+          <section style="background-color: #eee;">
+            <div class="container py-5">
+              <div class="row d-flex justify-content-center">
+                <div class="col-md-12 col-lg-10 col-xl-8">
+                  <div class="card">
+                    <div class="card-body p-md-5">
+                      <div>
+                        <h4>Upgrade your plan</h4>
+                        <p class="text-muted pb-2">
+                          Please make the payment to start enjoying all the features of our premium
+                          plan as soon as possible
+                        </p>
+                      </div>
+          
+                      <div class="px-3 py-4 border border-primary border-2 rounded mt-4 d-flex justify-content-between">
+                        <div class="d-flex flex-row align-items-center">
+                          <img src="https://i.imgur.com/S17BrTx.webp" class="rounded" width="60" />
+                          <div class="d-flex flex-column ms-4">
+                            <span class="h5 mb-1">Gold</span>
+                            <span class="small text-muted">CHANGE PLAN</span>
+                          </div>
+                        </div>
+                        <div class="d-flex flex-row align-items-center">
+                          <sup class="dollar font-weight-bold text-muted">₹</sup>
+                          <span class="h2 mx-1 mb-0">375</span>
+                          <span class="text-muted font-weight-bold mt-2">/ month</span>
+                        </div>
+                      </div>
+          
+                      <h4 class="mt-5">Payment details</h4>
+          
+                      <div class="mt-4 d-flex justify-content-between align-items-center">
+                        <div class="d-flex flex-row align-items-center">
+                          <img src="https://i.imgur.com/qHX7vY1.webp" class="rounded" width="70" />
+                          <div class="d-flex flex-column ms-3">
+                            <span class="h5 mb-1">Credit Card</span>
+                            <span class="small text-muted">1234 XXXX XXXX 2570</span>
+                          </div>
+                        </div>
+                        <div>
+                          <input type="text" class="form-control" placeholder="CVC" style="width: 70px;" />
+                        </div>
+                      </div>
+          
+                      <div class="mt-2 d-flex justify-content-between align-items-center">
+                        <div class="d-flex flex-row align-items-center">
+                          <img src="https://i.imgur.com/qHX7vY1.webp" class="rounded" width="70" />
+                          <div class="d-flex flex-column ms-3">
+                            <span class="h5 mb-1">Debit Card</span>
+                            <span class="small text-muted">2344 XXXX XXXX 8880</span>
+                          </div>
+                        </div>
+                        <div>
+                          <input type="text" class="form-control" placeholder="CVC" style="width: 70px;" />
+                        </div>
+                      </div>
+          
+                      <a href=""><h6 class="mt-4 mb-3 text-primary text-uppercase">ADD PAYMENT METHOD</h6></a>
+          
+                      <div class="form-outline">
+                        <input type="text" id="formControlLg" class="form-control form-control-lg" />
+                        <label class="form-label" for="formControlLg">Email address</label>
+                      </div>
+                      <div class="mt-3">
+                        <button class="btn btn-primary btn-block btn-lg">
+                          Proceed to payment <i class="fas fa-long-arrow-alt-right"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+        <!-- modal form ends here  -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="CloseModal2()">Close</button>
+          <button type="button" class="btn btn-primary" (click)="CloseModal2()">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- modal #3  -->
+  <div class="modal fade show" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="CloseModal3()"></button>
+        </div>
+        <!-- modal form body starts here  -->
+        <div class="modal-body"> 
+          <section style="background-color: #eee;">
+            <div class="container py-5">
+              <div class="row d-flex justify-content-center">
+                <div class="col-md-12 col-lg-10 col-xl-8">
+                  <div class="card">
+                    <div class="card-body p-md-5">
+                      <div>
+                        <h4>Upgrade your plan</h4>
+                        <p class="text-muted pb-2">
+                          Please make the payment to start enjoying all the features of our premium
+                          plan as soon as possible
+                        </p>
+                      </div>
+          
+                      <div class="px-3 py-4 border border-primary border-2 rounded mt-4 d-flex justify-content-between">
+                        <div class="d-flex flex-row align-items-center">
+                          <img src="https://i.imgur.com/S17BrTx.webp" class="rounded" width="60" />
+                          <div class="d-flex flex-column ms-4">
+                            <span class="h5 mb-1">Platinum</span>
+                            <span class="small text-muted">CHANGE PLAN</span>
+                          </div>
+                        </div>
+                        <div class="d-flex flex-row align-items-center">
+                          <sup class="dollar font-weight-bold text-muted">₹</sup>
+                          <span class="h2 mx-1 mb-0">525</span>
+                          <span class="text-muted font-weight-bold mt-2">/ month</span>
+                        </div>
+                      </div>
+          
+                      <h4 class="mt-5">Payment details</h4>
+          
+                      <div class="mt-4 d-flex justify-content-between align-items-center">
+                        <div class="d-flex flex-row align-items-center">
+                          <img src="https://i.imgur.com/qHX7vY1.webp" class="rounded" width="70" />
+                          <div class="d-flex flex-column ms-3">
+                            <span class="h5 mb-1">Credit Card</span>
+                            <span class="small text-muted">1234 XXXX XXXX 2570</span>
+                          </div>
+                        </div>
+                        <div>
+                          <input type="text" class="form-control" placeholder="CVC" style="width: 70px;" />
+                        </div>
+                      </div>
+          
+                      <div class="mt-2 d-flex justify-content-between align-items-center">
+                        <div class="d-flex flex-row align-items-center">
+                          <img src="https://i.imgur.com/qHX7vY1.webp" class="rounded" width="70" />
+                          <div class="d-flex flex-column ms-3">
+                            <span class="h5 mb-1">Debit Card</span>
+                            <span class="small text-muted">2344 XXXX XXXX 8880</span>
+                          </div>
+                        </div>
+                        <div>
+                          <input type="text" class="form-control" placeholder="CVC" style="width: 70px;" />
+                        </div>
+                      </div>
+          
+                      <a href=""><h6 class="mt-4 mb-3 text-primary text-uppercase">ADD PAYMENT METHOD</h6></a>
+          
+                      <div class="form-outline">
+                        <input type="text" id="formControlLg" class="form-control form-control-lg" />
+                        <label class="form-label" for="formControlLg">Email address</label>
+                      </div>
+                      <div class="mt-3">
+                        <button class="btn btn-primary btn-block btn-lg">
+                          Proceed to payment <i class="fas fa-long-arrow-alt-right"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+        <!-- modal form ends here  -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="CloseModal3()">Close</button>
+          <button type="button" class="btn btn-primary" (click)="CloseModal3()">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+
+
+</div>

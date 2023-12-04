@@ -1,0 +1,82 @@
+<nav class="navbar navbar-dark bg-dark fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+      <div class="offcanvas-header">
+        <h3 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Hello</h3>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul id="sidenav" class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item">
+            <a href="admindashboard" class="nav-link text-white font-weight-bold">
+                      <i class="fa fa-home" style="font-size:24px; color:red"></i>
+                      Home
+                  </a>
+          </li>
+          <li class="nav-item text-dark">
+            <a href="clients" class="nav-link text-white font-italic">
+                      <i class="fa fa-film" style="font-size:24px; color: red;"></i>
+                      Clients
+                  </a>
+          </li>
+          <li class="nav-item">
+            <a href="pclients" class="nav-link text-white font-italic">
+                      <i class="fa fa-music" style="font-size:24px; color: red;"></i>
+                      Pending clients
+                  </a>
+          </li>
+          <li class="nav-item">
+            <a href="users" class="nav-link text-white font-italic">
+                      <i class="fa fa-tv" style="font-size:24px; color: red;"></i>
+                      Users
+                  </a>
+          </li>
+          <li class="nav-item">
+            <a (click)="logout()" class="nav-link text-white font-italic">
+                      <i class="fa fa-sign-out" style="font-size:24px; color: red;"></i>
+                      Logout
+                  </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<table class="table table-hover table-striped">
+    <thead class="table-dark">
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">City</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Remove</th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      <tr *ngFor="let user of users">
+        <td>{{user.userName}}</td>
+        <td>{{user.userEmail}}</td>
+        <td>{{user.userCity}}</td>
+        <td>{{user.userPhone}}</td>
+        <td><button type="button" class="btn btn-danger" (click)="DeleteUser(user.pkUserId)">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+    <br>
+    <br>
+    <br><br>
+    <br>
+    <br>
+    <br>
+    <br><br>
+    <br>
+    <br>
+    <br><br>
+    <br>
+    <br>

@@ -1,0 +1,217 @@
+<!-- side navigation  -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+      <div class="offcanvas-header">
+
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul id="sidenav" class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item">
+            <a href="clientdashboard" class="nav-link text-white font-weight-bold">
+                      <i class="fa fa-home" style="font-size:24px; color:red"></i>
+                      Home
+                  </a>
+          </li>
+          <li class="nav-item text-dark">
+            <a href="addmovies" class="nav-link text-white font-italic">
+                      <i class="fa fa-film" style="font-size:24px; color: red;"></i>
+                      Add movies
+                  </a>
+          </li>
+          <li class="nav-item">
+            <a href="addsongs" class="nav-link text-white font-italic">
+                      <i class="fa fa-music" style="font-size:24px; color: red;"></i>
+                      Add songs
+                  </a>
+          </li>
+          <li class="nav-item">
+            <a href="addseries" class="nav-link text-white font-italic">
+                      <i class="fa fa-tv" style="font-size:24px; color: red;"></i>
+                      Add Series
+                  </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+<!-- side navigation ends  -->
+
+
+<section class="gradient-custom">
+    <div class="container py-5">
+      <div class="row justify-content-center align-items-center h-100">
+        <div class="col-12 col-lg-9 col-xl-7">
+          <div class="card shadow-2-strong card-registration" >
+              <h2 style="text-align: center; font-weight: bolder;">Add song</h2>
+            <div class="card-body p-4 p-md-5">
+              
+              <form class="bg-custom"
+              [formGroup]="songform"
+              (ngSubmit)="addSong()">
+                <div class="row">
+                  <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                      <label class="form-label text-dark" ><h5>Song title</h5></label>
+                      <input
+                        type="text"
+                        class="form-control form-control-lg"
+                        formControlName="Title"
+                      />
+                      
+
+                      <div *ngIf="songform.get('Title')?.invalid && songform.get('Title')?.touched">
+                        <div *ngIf="songform.get('Title')?.hasError">
+                          <span style="color: red;">Please Enter valid Title.</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                      <label class="form-label text-dark" ><h5>Description</h5></label>
+                      <input
+                        type="text"
+                        class="form-control form-control-lg"
+                        formControlName="Description"
+                      />
+                      
+                      <div *ngIf="songform.get('Description')?.invalid && songform.get('Description')?.touched">
+                        <div *ngIf="songform.get('Description')?.hasError">
+                          <span style="color: red;">Please Enter valid Description.</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                      <label class="form-label text-dark" ><h5>Generation</h5></label>
+                      <input
+                        type="text"
+                        
+                        class="form-control form-control-lg"
+                        formControlName="Genration"
+                      />
+                      
+                      <div *ngIf="songform.get('Genration')?.invalid && songform.get('Genration')?.touched">
+                        <div *ngIf="songform.get('Genration')?.hasError">
+                          <span style="color: red;">Please Enter valid generation.</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                      <label class="form-label text-dark" ><h5>Release Date</h5></label>
+                      <input
+                        type="date"
+                        class="form-control form-control-lg"
+                        formControlName="Date"
+                      />
+                      
+                      <div *ngIf="songform.get('Date')?.invalid && songform.get('Date')?.touched">
+                        <div *ngIf="songform.get('Date')?.hasError">
+                          <span style="color: red;">Please Enter valid Date.</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                      <label class="form-label text-dark" ><h5>Singer</h5></label>
+                      <input
+                        type="text"
+                        class="form-control form-control-lg"
+                        formControlName="Singer"
+                      />
+                      
+                      <div *ngIf="songform.get('Singer')?.invalid && songform.get('Singer')?.touched">
+                        <div *ngIf="songform.get('Singer')?.hasError">
+                          <span style="color: red;">Please Enter valid singer .</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+  
+                <div class="row">
+                  <div class="col-md-6 mb-4 d-flex align-items-center">
+                    <div class="form-outline datepicker w-100">
+                      <label class="form-label text-dark" ><h5>Thumbnail</h5></label>
+                      <input type="file" class="fileControlInput" multiple="multiple" accept=".png,.jpg/*"
+                    (change)="getFiledetials($event.target)"  formControlName="Thumbnail"/>
+                      
+                      <div *ngIf="songform.get('Thumbnail')?.invalid && songform.get('Thumbnail')?.touched">
+                        <div *ngIf="songform.get('Thumbnail')?.hasError">
+                          <span style="color: red;">Please Enter valid Thumbnail.</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+  
+                <div class="row">
+                  <div class="col-md-6 mb-4 pb-2">
+                    <div class="form-outline">
+                      <label class="form-label text-dark" ><h5>Audio file</h5></label>
+                      <input type="file" class="fileControlInput" multiple="multiple" accept=".mp3,.jpg/*"
+                      (change)="getMovieurl($event.target)"  formControlName="Audio"/>
+                      
+                      <div *ngIf="songform.get('Audio')?.invalid && songform.get('Audio')?.touched">
+                        <div *ngIf="songform.get('Audio')?.hasError">
+                          <span style="color: red;">Please Enter valid audio file.</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <label class="form-label text-dark" ><h5>Category</h5></label>
+                  <select class="form-select" aria-label="Default select example"  formControlName="Category">
+                    <option value="1">Action</option>
+                    <option value="2" >Romance</option>
+                    <option value="3">Comedy</option>
+                  </select>
+                  
+                    
+                  
+                  <div *ngIf="songform.get('Category')?.invalid && songform.get('Category')?.touched">
+                  <div *ngIf="songform.get('Category')?.hasError">
+                    <span style="color: red;">Please Enter valid Category.</span>
+                  </div>
+                </div>
+              </div>
+                <div class="mt-4 pt-2">
+                  <button type="reset" class="btn btn btn-warning btn-lg">
+                    Reset all
+                  </button>
+                  <button
+                  class="btn btn-warning btn-lg ms-2"
+                    type="submit"
+                    value="Submit"
+                    [disabled]="songform.invalid"
+                  >Submit form </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+

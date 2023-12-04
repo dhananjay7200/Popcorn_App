@@ -1,0 +1,13 @@
+<table class="table table-dark table-striped-columns">
+    <thead>
+        <tr>
+          <th scope="col">Series</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tr *ngFor="let item of clientseries">
+        <td>{{item.seriesTitle}}</td>
+        <td><button class="btn btn-danger" (click)="deleteseries(item.pkSeriesId)">Delete</button></td>
+      </tr>
+  </table>
+

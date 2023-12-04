@@ -1,0 +1,49 @@
+.gradient-custom {
+    background: linear-gradient(to bottom right, orange, rgb(244, 244, 200))
+}
+    
+    .card-registration .select-input.form-control[readonly]:not([disabled]) {
+    font-size: 1rem;
+    line-height: 2.15;
+    padding-left: .75em;
+    padding-right: .75em;
+    }
+    .card-registration .select-arrow {
+    top: 13px;
+    }
+
+   .card{
+        border-radius: 15px; 
+        border: 1px solid black;
+        background-color: wheat;
+    }
+
+    /* sidebar css */
+ul[id="sidenav"]>li{
+    margin: 10px;
+}
+          
+ul[id="sidenav"]>li>a{
+    font-size: x-large;
+}
+          
+ul[id="sidenav"]{
+    margin-top: 10%;
+}
+a, .end, i, .qua{
+    text-align: center;
+}
+
+/* form buttons css */
+
+button[type="submit"]{
+    background-color: orangered;
+    color: black;
+    border: none;
+}
+
+button[type="reset"]{
+    background-color: white;
+    color: black;
+    border: none;
+}

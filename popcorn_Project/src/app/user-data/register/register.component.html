@@ -1,0 +1,113 @@
+<section class="h-100 bg-dark">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col">
+          <div class="card card-registration my-4">
+            <div class="row g-0">
+              <div class="col-xl-6 d-none d-xl-block">
+                <img src="../../../assets/register-page.webp" alt="Sample photo" class="img-fluid"/>
+              </div>
+              <div class="col-xl-6">
+                <div class="card-body p-md-5 text-black">
+                  
+                  <h3 class="mb-5 text-uppercase">Registration</h3>
+                  <form [formGroup]="registerform" (ngSubmit)="regSubmit()">
+                  <div class="row"> 
+                      <div class="form-outline mb-4">
+                        <label class="form-label" for="Name"><h6>Full name</h6></label>
+                        <input type="text" id="Name" class="form-control" placeholder="Enter Name" formControlName="Name"/>
+                        
+                        <div *ngIf="registerform.get('Name')?.invalid && registerform.get('Name')?.touched">
+                          <div *ngIf="registerform.get('Name')?.hasError">
+                            <span style="color: red;">Please Enter the Name min 3 characters.</span>
+                          </div>
+                        </div>
+                      </div>                      
+                  </div>
+  
+                  <div class="form-outline mb-4">
+                    <label class="form-label" for="Email"><h6>Email ID</h6></label>
+                    <input type="text" id="Email" class="form-control" placeholder="Enter Email" formControlName="Email" />
+                    
+                    <div *ngIf="registerform.get('Email')?.invalid && registerform.get('Email')?.touched">
+                      <div *ngIf="registerform.get('Email')?.hasError">
+                        <span style="color: red;">ex-abc@xyz.com</span>
+                      </div>
+                    </div>
+                  </div>
+  
+                  <div class="form-outline mb-4">
+                    <label class="form-label" for="Phonenumber"><h6>Phone no</h6></label>
+                    <input type="text" id="Phonenumber" class="form-control" placeholder="Enter Phonenumber" formControlName="Phonenumber"/>
+                    
+                    <div *ngIf="registerform.get('Phonenumber')?.invalid && registerform.get('Phonenumber')?.touched">
+                      <div *ngIf="registerform.get('Phonenumber')?.hasError">
+                        <span style="color: red;">ex -8xxxxxxxxx.</span>
+                      </div>
+                    </div>
+                  </div>
+  
+                  <div class="form-outline mb-4">
+                    <label class="form-label" for="City"><h6>City</h6></label>
+                    <input type="text" id="City" class="form-control" placeholder="Enter City" formControlName="City"/>
+                    
+                    <div *ngIf="registerform.get('City')?.invalid && registerform.get('City')?.touched">
+                      <div *ngIf="registerform.get('City')?.hasError">
+                        <span style="color: red;">Please Enter the City.</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    <label class="form-label" for="passsword"><h6>Password</h6></label>
+                    <input type="password" id="password" class="form-control" placeholder="Password"  formControlName="Password"/>
+                    
+                    <div *ngIf="registerform.get('Password')?.invalid && registerform.get('Password')?.touched">
+                      <div *ngIf="registerform.get('Password')?.hasError">
+                        <span style="color: red;">Please Enter the Password minlength 8</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <h6>Register as:-</h6>
+                    <input class="form-check-input" type="radio"  id="flexRadio1" value="User" formControlName="Role" (change)="userRole('User')">
+                    <label class="form-check-label" for="flexRadioDefault1">
+                      &nbsp; User
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input  (change)="userRole('Client')" class="form-check-input" type="radio" id="flexRadio" value="Client" formControlName="Role">
+                    <label class="form-check-label" for="flexRadioDefault2">
+                     Client
+                    </label>
+                  </div>
+                  <div>
+                    <h6>Subscription:-</h6>
+                    <input class="form-check-input" type="radio"  id="flexRadioDefault1" value="1" formControlName="Sub">
+                    <label class="form-check-label" for="flexRadioDefault1">
+                      &nbsp; Yearly
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" id="flexRadioDefault2" value="2" formControlName="Sub">
+                    <label class="form-check-label" for="flexRadioDefault2">
+                     Monthly
+                    </label>
+                  </div>
+                  <br>
+                  <label class="form-label" for="profile"><h6>Select profile</h6></label><br>
+                  <input type="file" class="fileControlInput btn btn-primary" multiple="multiple" accept=".png,.jpge/*"
+                    (change)=" getProfileurl($event.target)"  formControlName="file1"/>
+                  <div class="d-flex justify-content-end pt-3">
+                    <button type="reset" class="btn btn-warning btn-lg">RESET ALL</button>
+                    <button type="submit" class="btn btn-lg ms-2" [disabled]="registerform.invalid">SUBMIT FORM</button>
+                  </div>
+                </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

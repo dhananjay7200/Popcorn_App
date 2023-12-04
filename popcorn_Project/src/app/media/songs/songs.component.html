@@ -1,0 +1,342 @@
+<nav class="navbar navbar-dark bg-dark fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+      <div class="offcanvas-header">
+        <h3 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Hello</h3>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul id="sidenav" class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item">
+            <a href="userhome" class="nav-link text-white font-weight-bold">
+                      <i class="fa fa-home" style="font-size:24px; color:red"></i>
+                      Home
+                  </a>
+          </li>
+          <li class="nav-item text-dark">
+            <a href="movies" class="nav-link text-white font-italic">
+                      <i class="fa fa-film" style="font-size:24px; color: red;"></i>
+                      Watch movies
+                  </a>
+          </li>
+          <li class="nav-item">
+            <a href="songs" class="nav-link text-white font-italic">
+                      <i class="fa fa-music" style="font-size:24px; color: red;"></i>
+                      Listen to songs
+                  </a>
+          </li>
+          <li class="nav-item">
+            <a href="series" class="nav-link text-white font-italic">
+                      <i class="fa fa-tv" style="font-size:24px; color: red;"></i>
+                      Watch Series
+                  </a>
+          </li>
+          <li class="nav-item">
+            <a (click)="logout()" class="nav-link text-white font-italic">
+                      <i class="fa fa-sign-out" style="font-size:24px; color: red;"></i>
+                      Logout
+                  </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="container" >
+    <div id="playersongs">
+      <div class="music_card" style="width: 18rem;">
+          <div class="music-container">
+             
+          <img [src]="image" class="card-img-top" alt="...">
+          <br><br>
+         
+          <div class="music-body">
+              <audio [src]="video" playsinline autoplay controls controlsList="nodownload"></audio>
+          </div>
+          </div>
+        </div>
+       
+      </div>
+  
+      <div class="search">
+          <app-search (searchTextChanged)="onSearchTextEntered($event)"></app-search>
+        </div>
+  
+  
+       
+      
+       
+  <div *ngFor="let item of mySongs">
+      <div  *ngIf="searchText===''||item.songTitle.toLowerCase().includes(searchText)||item.songSinger.toLowerCase().includes(searchText)||item.songDesc.toLowerCase().includes(searchText)">
+  <div class="card" style="width: 18rem;"  >
+  <div class="song-container">
+    <div class="col-7 imgbx"><img src={{item.imgUrl}} class="card-img-top" alt="..."></div>
+    <div class="card-body">
+      <h5><strong class="card-title">{{item.songTitle}}</strong></h5>
+      <h5><strong class="card-title">Singer: {{item.songSinger}}</strong></h5>
+      
+      <h5><strong class="card-title">{{item.songDesc}}</strong></h5>
+     
+      
+      <div class="content">
+       <button class="btn"   (click)="playSong(item.vidUrl,item.imgUrl,item.songTitle)"><i class="fa fa-play"></i></button>&nbsp;&nbsp;
+        <button class="btn" (click)="addToFav(item.pkSongsId)" ><i class="fa fa-heart"></i></button><br>
+      </div>
+  </div>
+  </div>
+    </div>
+  
+  </div>
+  </div>
+  </div>
+  <div class="containerh"><i class="fa fa-heart" style="font-size:36px;color:red"></i><h1 style="color:white">Your Favourite Songs</h1><i class="fa fa-heart" style="font-size:36px;color:red"></i></div>
+  <div class="container">
+  
+  
+     
+  <div *ngFor="let item of favSongsfetch ">
+    
+  <div class="card" style="width: 18rem;"  >
+  <div class="song-container">
+    <div class="col-7 imgbx"><img src={{item.imgUrl}} class="card-img-top" alt="..."></div>
+    <div class="card-body">
+      <h2><strong class="card-title">{{item.songTitle}}</strong></h2>
+      <h6><strong class="card-title">Singer: {{item.songSinger}}</strong></h6>
+    
+    
+    
+      <h5><strong class="card-title">{{item.songDesc}}</strong></h5>
+      <div class="content">
+       <button class="btn"   (click)="playSong(item.vidUrl,item.imgUrl,item.songTitle)"><i class="fa fa-play"></i></button>&nbsp;&nbsp;
+        <button class="btn" (click)="deleteFav(item.pkSongsId)" ><i class="fa fa-trash"></i></button><br>
+      </div>
+  </div>
+  </div>
+    </div>
+  </div>
+  </div>
+  
+  
+   
+  
+  <!--
+  <div class="card" style="width: 18rem;">
+    <div class="col-7 imgbx"><img src="../../assets/robert.jfif" class="card-img-top img-fluid" alt="..."></div>
+    <div class="card-body">
+      <h2><strong class="card-title">Card title</strong></h2>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <div class="content">
+        <button class="btn" onclick="" ><i class="fa fa-play"></i></button>&nbsp;&nbsp;
+        <button class="btn" ><i class="fa fa-heart"></i></button><br>
+      </div>
+      
+    </div>
+  </div>
+  <div class="card" style="width: 18rem;">
+    <div class="col-7 imgbx"><img src="data:image/jpeg;base64,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"  class="card-img-top img-fluid" alt="...">
+    <div class="card-body">
+      <h2><strong class="card-title">Card title</strong></h2>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <div class="content">
+        <button class="btn" ><i class="fa fa-play"></i></button>&nbsp;&nbsp;
+        <button class="btn" ><i class="fa fa-heart "></i></button><br>
+      </div>
+      
+    </div>
+  </div>
+  </div>
+  <div class="card" style="width: 18rem;">
+    <div class="col-7 imgbx"><img src="data:image/jpeg;base64,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"  class="card-img-top img-fluid" alt="...">
+    <div class="card-body">
+      <h2><strong class="card-title">Card title</strong></h2>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <div class="content">
+        <button class="btn" ><i class="fa fa-play"></i></button>&nbsp;&nbsp;
+        <button class="btn" ><i class="fa fa-heart"></i></button><br>
+      </div>
+      
+    </div>
+  </div>
+  </div>
+  <div class="card" style="width: 18rem;">
+    <div class="col-7 imgbx"><img src="../../assets/83.jpg"  class="card-img-top img-fluid" alt="...">
+    <div class="card-body">
+      <h2><strong class="card-title">Card title</strong></h2>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <div class="content">
+        <button class="btn" ><i class="fa fa-play"></i></button>&nbsp;&nbsp;
+        <button class="btn" ><i class="fa fa-heart"></i></button><br>
+      </div>
+      
+    </div>
+  </div>
+  </div>
+  
+  <div class="card" style="width: 18rem;">
+    <div class="col-7 imgbx"><img src="../../assets/KGF.jpg"  class="card-img-top img-fluid" alt="...">
+    <div class="card-body">
+      <h2><strong class="card-title">Card title</strong></h2>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <div class="content">
+        <button class="btn" ><i class="fa fa-play"></i></button>&nbsp;&nbsp;
+        <button class="btn" ><i class="fa fa-heart"></i></button><br>
+      </div>
+      
+    </div>
+  </div>
+  </div>
+  
+  <div class="card" style="width: 18rem;">
+    <div class="col-7 imgbx"><img src="../../assets/KANTARA2.jpg"  class="card-img-top img-fluid" alt="...">
+    <div class="card-body">
+      <h2><strong class="card-title">Card title</strong></h2>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <div class="content">
+        <button class="btn" ><i class="fa fa-play"></i></button>&nbsp;&nbsp;
+        <button class="btn" ><i class="fa fa-heart"></i></button><br>
+      </div>
+      
+    </div>
+  </div>
+  </div>
+  
+  <div class="card" style="width: 18rem;">
+    <div class="col-7 imgbx"><img src="../../assets/VED.jpg"  class="card-img-top img-fluid" alt="...">
+    <div class="card-body">
+      <h2><strong class="card-title">Card title</strong></h2>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <div class="content">
+        <button class="btn" ><i class="fa fa-play"></i></button>&nbsp;&nbsp;
+        <button class="btn" ><i class="fa fa-heart"></i></button><br>
+      </div>
+      
+    </div>
+  </div>
+  </div>
+  
+  <div class="card" style="width: 18rem;">
+    <div class="col-7 imgbx"><img src="../../assets/ig.jpg"  class="card-img-top img-fluid" alt="...">
+    <div class="card-body">
+      <h2><strong class="card-title">Card title</strong></h2>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <div class="content">
+        <button class="btn" ><i class="fa fa-play"></i></button>&nbsp;&nbsp;
+        <button class="btn" ><i class="fa fa-heart"></i></button><br>
+      </div>
+      
+    </div>
+  </div>
+  </div>
+  
+  <div class="card" style="width: 18rem;">
+    <div class="col-7 imgbx"><img src="../../assets/coldplay.jpg"  class="card-img-top img-fluid" alt="...">
+    <div class="card-body">
+      <h2><strong class="card-title">Card title</strong></h2>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <div class="content">
+        <button class="btn" ><i class="fa fa-play"></i></button>&nbsp;&nbsp;
+        <button class="btn" ><i class="fa fa-heart"></i></button><br>
+      </div>
+      
+    </div>
+  </div>
+  </div>
+  
+  <div class="card" style="width: 18rem;">
+    <div class="col-7 imgbx"><img src="../../assets/mg2.jpg"  class="card-img-top img-fluid" alt="...">
+    <div class="card-body">
+      <h2><strong class="card-title">Card title</strong></h2>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <div class="content">
+        <button class="btn" ><i class="fa fa-play"></i></button>&nbsp;&nbsp;
+        <button class="btn" ><i class="fa fa-heart"></i></button><br>
+      </div>
+      
+    </div>
+  </div>
+  </div>
+  
+  <div class="card" style="width: 18rem;">
+    <div class="col-7 imgbx"><img src="../../assets/skyfall.jpg"  class="card-img-top img-fluid" alt="...">
+    <div class="card-body">
+      <h2><strong class="card-title">Card title</strong></h2>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <div class="content">
+        <button class="btn" ><i class="fa fa-play"></i></button>&nbsp;&nbsp;
+        <button class="btn" ><i class="fa fa-heart"></i></button><br>
+      </div>
+      
+    </div>
+  </div>
+  </div>
+  
+  <div class="card" style="width: 18rem;">
+    <div class="col-7 imgbx"><img src="../../assets/naatu.jpg"  class="card-img-top img-fluid" alt="...">
+    <div class="card-body">
+      <h2><strong class="card-title">Card title</strong></h2>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <div class="content">
+        <button class="btn" ><i class="fa fa-play"></i></button>&nbsp;&nbsp;
+        <button class="btn" ><i class="fa fa-heart"></i></button><br>
+      </div>
+      
+    </div>
+  </div>
+  </div>
+  
+  <div class="card" style="width: 18rem;">
+    <div class="col-7 imgbx"><img src="../../assets/Khairiyat.jpg"  class="card-img-top img-fluid" alt="...">
+    <div class="card-body">
+      <h2><strong class="card-title">Card title</strong></h2>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <div class="content">
+        <button class="btn" ><i class="fa fa-play"></i></button>&nbsp;&nbsp;
+        <button class="btn" ><i class="fa fa-heart"></i></button><br>
+      </div>
+      
+    </div>
+  </div>
+  </div>
+  
+  <div class="card" style="width: 18rem;">
+    <div class="col-7 imgbx"><img src="../../assets/faded.jpg"  class="card-img-top img-fluid" alt="...">
+    <div class="card-body">
+      <h2><strong class="card-title">Card title</strong></h2>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <div class="content">
+        <button class="btn" ><i class="fa fa-play"></i></button>&nbsp;&nbsp;
+        <button class="btn" ><i class="fa fa-heart"></i></button><br>
+      </div>
+      
+    </div>
+  </div>
+  </div>
+  
+  
+   <div class="card" style="width: 18rem;">
+    <div class="col-7 imgbx"><img src="../../assets/batman_movie.jpg"  class="card-img-top img-fluid" alt="...">
+    <div class="card-body">
+      <h2><strong class="card-title">Card title</strong></h2>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <div class="content">
+        <button class="btn" ><i class="fa fa-play"></i></button>&nbsp;&nbsp;
+        <button class="btn" ><i class="fa fa-heart"></i></button><br>
+      </div>
+      
+    </div>
+  </div>
+  </div>-->
+  
+  
+  
+  
+  
+  
+  
+  
+  

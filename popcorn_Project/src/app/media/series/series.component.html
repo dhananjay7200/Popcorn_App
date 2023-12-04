@@ -1,0 +1,126 @@
+
+<nav class="navbar navbar-dark bg-dark fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+      <div class="offcanvas-header">
+        <h3 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Hello,</h3>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul id="sidenav" class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item">
+            <a href="userhome" class="nav-link text-white font-weight-bold">
+                      <i class="fa fa-home" style="font-size:24px; color:red"></i>
+                      Home
+                  </a>
+          </li>
+          <li class="nav-item text-dark">
+            <a href="movies" class="nav-link text-white font-italic">
+                      <i class="fa fa-film" style="font-size:24px; color: red;"></i>
+                      Watch movies
+                  </a>
+          </li>
+          <li class="nav-item">
+            <a href="songs" class="nav-link text-white font-italic">
+                      <i class="fa fa-music" style="font-size:24px; color: red;"></i>
+                      Listen to songs
+                  </a>
+          </li>
+          <li class="nav-item">
+            <a href="series" class="nav-link text-white font-italic">
+                      <i class="fa fa-tv" style="font-size:24px; color: red;"></i>
+                      Watch Series
+                  </a>
+          </li>
+          <li class="nav-item">
+            <a (click)="logout()" class="nav-link text-white font-italic">
+                      <i class="fa fa-sign-out" style="font-size:24px; color: red;"></i>
+                      Logout
+                  </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<body class="main-body">
+
+    <div id="playerseries">
+   
+        <video #player [src]="video" playsinline  controls controlsList="nodownload" alt="" height="600" width="400"></video>
+      </div>
+
+
+    <!-- search -->
+<div class="search">
+    <app-search (searchTextChanged)="onSearchTextEntered($event)"></app-search>
+  </div>
+<!-- search -->
+<div class="containerh"><h1 style="color:white">Shows</h1></div>
+<!-- displaying all the series -->
+
+<div class="container" >
+    <div *ngFor="let item of allSeries">
+        <div  *ngIf="searchText===''||item.seriesTitle.toLowerCase().includes(searchText)||item.country.toLowerCase().includes(searchText)||item.seriesDesc.toLowerCase().includes(searchText)">
+    <div class="card" style="width: 18rem;"  >
+    <div class="song-container">
+      <div class="col-7 imgbx"><img src={{item.imgUrl}} class="card-img-top" alt="..."></div>
+      <div class="card-body">
+        <h2><strong class="card-title">{{item.seriesTitle}}</strong></h2>
+        <h6><strong class="card-title">Country: {{item.country}}</strong></h6>
+        
+      
+       
+        <h5><strong class="card-title">{{item.seriesDesc}}</strong></h5>
+        <div class="content">
+         <button class="btn" (click)="playSeries(item.vidUrl)" ><i class="fa fa-play"></i></button>&nbsp;&nbsp;
+          <button class="btn" (click)="addToFavSeries(item.pkSeriesId)" ><i class="fa fa-heart"></i></button><br>
+        </div>
+    </div>
+    </div>
+      </div>
+    
+    </div>
+    </div>
+</div>
+
+
+<!-- showing the fav movies and deletefav functionality -->
+
+
+<div class="containerh"><i class="fa fa-heart" style="font-size:36px;color:red"></i><h1 style="color:white">Your Favourite Shows</h1><i class="fa fa-heart" style="font-size:36px;color:red"></i></div>
+<div class="container" >
+   
+<div *ngFor="let item of favSeriesfetch ">
+  
+<div class="card" style="width: 18rem;"  >
+<div class="product-container">
+  <div class="col-7 imgbx"><img src={{item.imgUrl}} class="card-img-top" alt="..."></div>
+  <div class="card-body">
+    <h2><strong class="card-title">{{item.seriesTitle}}</strong></h2>
+    <h5><strong class="card-title">{{item.seriesDesc}}</strong></h5>
+     
+   
+    <div class="content">
+     <button class="btn"   (click)="playSeries(item.vidUrl)"><i class="fa fa-play"></i></button>&nbsp;&nbsp;
+      <button class="btn" (click)="deleteFavSeries(item.pkSeriesId)" ><i class="fa fa-trash"></i></button><br>
+    </div>
+</div>
+</div>
+  </div>
+
+</div></div>
+
+    
+</body>
+
+<!-- displaying all the series ends -->
+
+
+
+

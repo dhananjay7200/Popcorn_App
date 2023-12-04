@@ -1,0 +1,12 @@
+<table class="table table-dark table-striped-columns">
+    <thead>
+        <tr>
+          <th scope="col">Songs</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tr *ngFor="let item of clientsongs">
+        <td>{{item.songTitle}}</td>
+        <td><button class="btn btn-danger" (click)="deletesong(item.pkSongsId)">Delete</button></td>
+      </tr>
+  </table>
